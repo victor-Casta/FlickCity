@@ -1,0 +1,19 @@
+{
+  "name": "flickcity",
+  "version": "1.0.0",
+  "description": "🎬🍿 Curso Práctico de consumo de API con JS (Movie landing)",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victor-Casta/FlickCity.git"
+  },
+  "author": "VictorCasta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victor-Casta/FlickCity/issues"
+  },
+  "homepage": "https://github.com/victor-Casta/FlickCity#readme"
+}
