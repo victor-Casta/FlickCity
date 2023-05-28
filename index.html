@@ -1,15 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlickCity</title>
+    <link rel="stylesheet" href="./src/css/normalize.css/normalize.css">
     <link rel="stylesheet" href="./src/css/style.css">
-    <script defer src="./src/js/secret.js"></script>
+    <script defer src="./src/js/secrets.js"></script>
     <script defer src="./src/js/main.js"></script>
 </head>
+
 <body>
-    
+    <header>
+        <section class="main__section-menu">
+            <div class="menu__icons">
+                <img class="menu__icons-logo" src="./src/images/logos/logo.svg" alt="logo">
+                <img class="menu__icons-burger" src="./src/images/logos/Menu-Hamburger.png" alt="hamburger menu">
+            </div>
+            <div class="slide-menu" id="slide-menu">
+                <ul>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Clasic</a></li>
+                    <li><a href="#">Popular</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="main__section-search">
+            <span class="input-container">
+                <input type="search" name="search" id="input-search" placeholder="search your movie">
+                <img src="./src/images/logos/Search.png" alt="">
+            </span>
+        </section>
+        <section class="main__section-opcion-movies">
+            <ul>
+                <li><a href="">All</a></li>
+                <li><a href="">Movies</a></li>
+                <li><a href="">Series</a></li>
+                <li><a href="">Anime</a></li>
+                <li><a href="">Treading</a></li>
+            </ul>
+        </section>
+    </header>
+
+    <main>
+        <section class="section__treding-movies">
+            <h2>Trending Now</h2>
+            <div class="movie-container">
+                <div class="scroll-container">
+                    <article class="cards-container">
+                        <img class="trending-image movie" src="./src/images/img/movie-1.jpg" alt="batman">
+                        <h1>Batman</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>8.9</p>
+                        </div>
+                    </article>
+
+                    <article class="cards-container">
+                        <img class="trending-image" src="./src/images/img/movie-2.jpg" alt="Compton">
+                        <h1>Compton</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="cards-container">
+                        <img class="trending-image" src="./src/images/img/movie-3.jpg" alt="Moonlight">
+                        <h1>Moonlight</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>7.6</p>
+                        </div>
+                    </article>
+
+                    <article class="cards-container">
+                        <img class="trending-image" src="./src/images/img/movie-4.jpg" alt="always in season">
+                        <h1>always in season</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>8.5</p>
+                        </div>
+                    </article>
+
+                    <article class="cards-container">
+                        <img class="trending-image" src="./src/images/img/movie-5.jpg" alt="Kick-ass">
+                        <h1>ick-ass</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>6.9</p>
+                        </div>
+                    </article>
+
+                    <article class="cards-container">
+                        <img class="trending-image" src="./src/images/img/movie-6.jpg" alt="Jhohn Wick">
+                        <h1>Jhohn Wick</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="cards-container">
+                        <img class="trending-image" src="./src/images/img/movie-7.jpg" alt="Alien">
+                        <h1>Alien</h1>
+                        <div class="star-movie">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>8.5</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section__new-movies">
+            <h2>New Movies</h2>
+            <div class="new-movie-container">
+                <div class="new-movies-scroll-container">
+                    <article class="new-movie-cards-container">
+                        <img class="new-movie-image movie" src="./src/images/img/movie-8.jpg" alt="Mad Max">
+                        <h3>Mad Max</h3>
+                        <div class="new-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="new-movie-cards-container">
+                        <img class="new-movie-image movie" src="./src/images/img/movie-9.jpg" alt="Mad Max">
+                        <h3>Mad Max</h3>
+                        <div class="new-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="new-movie-cards-container">
+                        <img class="new-movie-image movie" src="./src/images/img/movie-10.jpg" alt="Mad Max">
+                        <h3>Mad Max</h3>
+                        <div class="new-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="new-movie-cards-container">
+                        <img class="new-movie-image movie" src="./src/images/img/movie-11.jpg" alt="Mad Max">
+                        <h3>Mad Max</h3>
+                        <div class="new-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="new-movie-cards-container">
+                        <img class="new-movie-image movie" src="./src/images/img/movie-12.jpg" alt="Mad Max">
+                        <h3>Mad Max</h3>
+                        <div class="new-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="new-movie-cards-container">
+                        <img class="new-movie-image movie" src="./src/images/img/movie-13.jpg" alt="Mad Max">
+                        <h3>Mad Max</h3>
+                        <div class="new-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section__animated-movies">
+            <h2>Aminated Movies</h2>
+            <div class="animated-movie-container">
+                <div class="animated-movies-scroll-container">
+                    <article class="animated-movie-cards-container">
+                        <img class="animated-movie-image movie" src="./src/images/img/animated-1.jpg" alt="Rio">
+                        <h3>Rio</h3>
+                        <div class="animated-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="animated-movie-cards-container">
+                        <img class="animated-movie-image movie" src="./src/images/img/animated-2.jpg" alt="Zootopia">
+                        <h3>Zootopia</h3>
+                        <div class="animated-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="animated-movie-cards-container">
+                        <img class="animated-movie-image movie" src="./src/images/img/animated-3.jpg" alt="Hotel Transilvania">
+                        <h3>Hotel Transilvania</h3>
+                        <div class="animated-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+
+                    <article class="animated-movie-cards-container">
+                        <img class="animated-movie-image movie" src="./src/images/img/animated-4.jpg" alt="Hotel transilvania 4">
+                        <h3>Hotel Transilvania 4</h3>
+                        <div class="animated-movie-star">
+                            <img src="./src/images/logos/Star.svg" alt="star">
+                            <p>9.9</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section>
+            <img src="./src/images/logos/Subtract.svg" alt="Home">
+            <p>Home</p>
+        </section>
+        <section>
+            <img src="./src/images/logos/Search.svg" alt="Search">
+            <p>Search</p>
+        </section>
+        <section>
+            <img src="./src/images/logos/favarates.svg" alt="Favorites">
+            <p>Favorites</p>
+        </section>
+        <section>
+            <img src="./src/images/logos/Profile.svg" alt="Profile">
+            <p>Profile</p>
+        </section>
+    </footer>
 </body>
+
 </html>
