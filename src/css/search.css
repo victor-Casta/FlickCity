@@ -9,6 +9,7 @@ body {
     font-size: 0.8rem;
 }
 
+/*HOME VIEW*/
 header {
     width: 100%;
     height: 25vh;
@@ -91,6 +92,12 @@ header .main__section-search span input {
 header .main__section-opcion-movies {
     width: 100%;
     height: auto;
+    overflow-x: scroll;
+}
+header .main__section-opcion-movies ul {
+    display: flex;
+    gap: 10px;
+    white-space: nowrap;
 }
 header .main__section-opcion-movies ul li {
     display: inline-block;
@@ -100,16 +107,16 @@ header .main__section-opcion-movies ul li a {
     text-decoration: none;
     color: #FFFF;
     font-size: 0.8rem;
-    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #ed8c1a4d;
+    border-radius: 8px;
 }
 
-main .section__treding-movies {
+main {
     width: 100%;
     height: auto;
 }
-main .section__treding-movies h2,
-main .section__new-movies h2,
-main .section__animated-movies h2 {
+main h2 {
     color: #FFFF;
     font-size: 1rem;
     margin-left: 20px;
@@ -117,62 +124,37 @@ main .section__animated-movies h2 {
     padding-left: 5px;
     margin-bottom: 20px;
 }
-main .movie-container,
-main .new-movie-container,
-main .animated-movie-container {
-    overflow-x: auto;
+main .search-movies-container {
+    width: 100%;
+    display: grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    grid-gap: 10px;
 }
-main .movie-container .scroll-container,
-main .new-movie-container .new-movies-scroll-container, 
-main .animated-movie-container .animated-movies-scroll-container {
-    display: flex;
-    white-space: nowrap;
-}
-main .movie-container .cards-container .trending-image,
-main .new-movie-container .new-movies-scroll-container .new-movie-cards-container .new-movie-image,
-main .animated-movie-container .animated-movies-scroll-container .animated-movie-cards-container .animated-movie-image {
-    width: 250px;
-    height: 350px;
+main article .movie-search {
+    width: 150px;
+    height: 180px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: -1px 1px 12px 1px rgba(251,151,34,1);
 }
-main .movie-container .cards-container,
-main .new-movie-container .new-movie-cards-container,
-main .animated-movie-container .animated-movie-cards-container {
+main article {
+    width: 160px;
+    height: 180px;
+    position: relative;
+}
+main article .add-favorites-container {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    bottom: -13px;
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex: 0 0 auto;
-    width: 300px; 
-    padding: 10px;
-}
-main .movie-container .cards-container h1,
-main .new-movie-container .new-movie-cards-container h3,
-main .animated-movie-container .animated-movie-cards-container h3 {
-    color: #FFFFFF;
-    margin: 10px 0 5px 0;
-}
-main .movie-container .cards-container .star-movie,
-main .new-movie-container .new-movie-cards-container .new-movie-star,
-main .animated-movie-container .animated-movie-cards-container .animated-movie-star {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-main .movie-container .cards-container .star-movie img,
-main .new-movie-container .new-movie-cards-container .new-movie-star img,
-main .animated-movie-container .animated-movie-cards-container .animated-movie-star img {
-    width: 15px;
-    height: 15px;
-    object-fit: cover;
-}
-main .movie-container .cards-container .star-movie p,
-main .new-movie-container .new-movie-cards-container .new-movie-star p, 
-main .animated-movie-container .animated-movie-cards-container .animated-movie-star p {
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: 0.7rem;
+    background-color: var(--black-color);
+    border-radius: 50%;
+    box-shadow: 0px 3px 3px 1px #FB9722;
 }
 
 footer {

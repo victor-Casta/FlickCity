@@ -1,0 +1,199 @@
+:root {
+    --primary-color: #FB9722;
+    --black-color: #1F1F1F;
+}
+
+body {
+    background-color: var(--black-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+}
+
+/*HOME VIEW*/
+header {
+    width: 100%;
+    height: 25vh;
+}
+header .main__section-menu {
+    width: 100%;
+    height: 30%;
+    position: relative;
+}
+header .main__section-menu .menu__icons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .main__section-menu .menu__icons .menu__icons-logo {
+    margin-left: 20px;
+}
+header .main__section-menu .menu__icons .menu__icons-burger {
+    margin-right: 20px;
+}
+header #slide-menu {
+    display: none;
+}
+header .main__section-menu .slide-menu {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--black-color);
+    border-radius: 18px 0 0 18px;
+}
+header .main__section-menu .slide-menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    list-style-type: none;
+    margin-top: 30px;
+}
+header .main__section-menu .slide-menu ul li a {
+    text-decoration: none;
+    color: #FFFF;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 10px;
+}
+header .main__section-search {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+header .main__section-search span {
+    width: 246px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+    background-color: #000000;
+    padding: 5px 15px;
+}
+header .main__section-search span input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    animation: none;
+    transition: none;
+    outline: none;
+    background-color: #dfe;
+    border: 0;
+    background-color: #000000;
+    color: #FFFF;
+    font-size: 0.8rem;
+    width: 230px;
+}
+header .main__section-opcion-movies {
+    width: 100%;
+    height: auto;
+}
+header .main__section-opcion-movies ul li {
+    display: inline-block;
+    list-style-type: none;
+}
+header .main__section-opcion-movies ul li a {
+    text-decoration: none;
+    color: #FFFF;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+main .section__treding-movies {
+    width: 100%;
+    height: auto;
+}
+main .section__treding-movies h2,
+main .section__new-movies h2,
+main .section__animated-movies h2 {
+    color: #FFFF;
+    font-size: 1rem;
+    margin-left: 20px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+main .movie-container,
+main .new-movie-container,
+main .animated-movie-container {
+    overflow-x: auto;
+}
+main .movie-container .scroll-container,
+main .new-movie-container .new-movies-scroll-container, 
+main .animated-movie-container .animated-movies-scroll-container {
+    display: flex;
+    white-space: nowrap;
+}
+main .movie-container .cards-container .trending-image,
+main .new-movie-container .new-movies-scroll-container .new-movie-cards-container .new-movie-image,
+main .animated-movie-container .animated-movies-scroll-container .animated-movie-cards-container .animated-movie-image {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: -1px 1px 12px 1px rgba(251,151,34,1);
+}
+main .movie-container .cards-container,
+main .new-movie-container .new-movie-cards-container,
+main .animated-movie-container .animated-movie-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+    width: 300px; 
+    padding: 10px;
+}
+main .movie-container .cards-container h1,
+main .new-movie-container .new-movie-cards-container h3,
+main .animated-movie-container .animated-movie-cards-container h3 {
+    color: #FFFFFF;
+    margin: 10px 0 5px 0;
+}
+main .movie-container .cards-container .star-movie,
+main .new-movie-container .new-movie-cards-container .new-movie-star,
+main .animated-movie-container .animated-movie-cards-container .animated-movie-star {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+main .movie-container .cards-container .star-movie img,
+main .new-movie-container .new-movie-cards-container .new-movie-star img,
+main .animated-movie-container .animated-movie-cards-container .animated-movie-star img {
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+}
+main .movie-container .cards-container .star-movie p,
+main .new-movie-container .new-movie-cards-container .new-movie-star p, 
+main .animated-movie-container .animated-movie-cards-container .animated-movie-star p {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+footer {
+    width: 100%;
+    height: 15vh;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: rgb(24 19 19 / 96%);
+    border-radius: 10px 10px 0 0;
+    align-items: center;
+}
+footer section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+
