@@ -12,7 +12,7 @@ body {
 /*HOME VIEW*/
 header {
     width: 100%;
-    height: 25vh;
+    height: 20vh;
 }
 header .main__section-menu {
     width: 100%;
@@ -148,27 +148,28 @@ main .animated-movie-container .animated-movie-cards-container {
     width: 300px; 
     padding: 10px;
 }
-main .movie-container .cards-container h1,
+main .movie-container .cards-container h3,
 main .new-movie-container .new-movie-cards-container h3,
 main .animated-movie-container .animated-movie-cards-container h3 {
     color: #FFFFFF;
-    margin: 10px 0 5px 0;
+    margin: 10px 0 14px 0;
+    text-align: center;
 }
-main .movie-container .cards-container .star-movie,
+main .section__treding-movies .movie-container .scroll-container .new-movie-star,
 main .new-movie-container .new-movie-cards-container .new-movie-star,
 main .animated-movie-container .animated-movie-cards-container .animated-movie-star {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-main .movie-container .cards-container .star-movie img,
+main .section__treding-movies .movie-container .scroll-container .new-movie-star img,
 main .new-movie-container .new-movie-cards-container .new-movie-star img,
 main .animated-movie-container .animated-movie-cards-container .animated-movie-star img {
     width: 15px;
     height: 15px;
     object-fit: cover;
 }
-main .movie-container .cards-container .star-movie p,
+main .section__treding-movies .movie-container .scroll-container .new-movie-star p,
 main .new-movie-container .new-movie-cards-container .new-movie-star p, 
 main .animated-movie-container .animated-movie-cards-container .animated-movie-star p {
     color: #FFFFFF;
