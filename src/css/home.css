@@ -89,15 +89,15 @@ header .main__section-search span input {
     font-size: 0.8rem;
     width: 230px;
 }
-header .main__section-opcion-movies {
+header .main__section-opcion-movie {
     width: 100%;
     height: auto;
 }
-header .main__section-opcion-movies ul li {
+header .main__section-opcion-movie ul li {
     display: inline-block;
     list-style-type: none;
 }
-header .main__section-opcion-movies ul li a {
+header .main__section-opcion-movie ul li a {
     text-decoration: none;
     color: #FFFF;
     font-size: 0.8rem;
