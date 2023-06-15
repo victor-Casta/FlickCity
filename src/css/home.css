@@ -8,11 +8,14 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
 }
+.inactive {
+    display: none;
+}
 
 /*HOME VIEW*/
 header {
     width: 100%;
-    height: 20vh;
+    height: 24vh;
 }
 header .main__section-menu {
     width: 100%;
@@ -32,13 +35,12 @@ header .main__section-menu .menu__icons .menu__icons-logo {
 header .main__section-menu .menu__icons .menu__icons-burger {
     margin-right: 20px;
 }
-header #slide-menu {
-    display: none;
-}
+
 header .main__section-menu .slide-menu {
     width: 200px;
     height: 300px;
     position: absolute;
+    z-index: 3;
     top: 0;
     right: 0;
     background-color: var(--black-color);
@@ -89,19 +91,72 @@ header .main__section-search span input {
     font-size: 0.8rem;
     width: 230px;
 }
-header .main__section-opcion-movie {
+header .main__section-opcion-movies {
     width: 100%;
     height: auto;
+    overflow-x: scroll;
 }
-header .main__section-opcion-movie ul li {
+header .main__section-opcion-movies ul {
+    display: flex;
+    gap: 10px;
+    white-space: nowrap;
+}
+header .main__section-opcion-movies ul li {
     display: inline-block;
     list-style-type: none;
 }
-header .main__section-opcion-movie ul li a {
+header .main__section-opcion-movies ul li a {
     text-decoration: none;
     color: #FFFF;
     font-size: 0.8rem;
-    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #ed8c1a4d;
+    border-radius: 8px;
+}
+
+
+main .search-movies-container-list {
+    width: 100%;
+    height: auto;
+}
+main .search-movies-container h2 {
+    color: #FFFF;
+    font-size: 1rem;
+    margin-left: 20px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+main .search-movies-container-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+}
+main .search-movies-container-list .movie-search {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+main .search-movies-container-list article {
+    width: 160px;
+    height: 180px;
+    position: relative;
+}
+main .search-movies-container-list article .add-favorites-container {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-color);
+    border-radius: 50%;
+    box-shadow: 0px 3px 3px 1px #FB9722;
 }
 
 main .section__treding-movies {
@@ -113,10 +168,9 @@ main .section__new-movies h2,
 main .section__animated-movies h2 {
     color: #FFFF;
     font-size: 1rem;
-    margin-left: 20px;
     border-left: 5px solid var(--primary-color);
     padding-left: 5px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 20px;
 }
 main .movie-container,
 main .new-movie-container,

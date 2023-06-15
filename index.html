@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./src/css/home.css">
     <script defer src="./node_modules/axios/dist/axios.min.js"></script>
     <script defer src="./src/js/secrets.js"></script>
+    <script src="./src/js/nodes.js"></script>
     <script defer src="./src/js/main.js"></script>
+    <script defer src="./src/js/navigation.js"></script>
 </head>
 
 <body>
@@ -20,7 +22,7 @@
                 <img class="menu__icons-logo" src="./src/images/logos/logo.svg" alt="logo">
                 <img class="menu__icons-burger" src="./src/images/logos/Menu-Hamburger.png" alt="hamburger menu">
             </div>
-            <div class="slide-menu" id="slide-menu">
+            <div class="slide-menu inactive" id="slide-menu">
                 <ul>
                     <li><a href="#">Movies</a></li>
                     <li><a href="#">Series</a></li>
@@ -36,18 +38,48 @@
                 <img src="./src/images/logos/Search.png" alt="">
             </span>
         </section>
-        <section class="main__section-opcion-movie">
+        <section class="main__section-opcion-movies">
             <ul>
-                <li><a href="">All</a></li>
-                <li><a href="">Movies</a></li>
-                <li><a href="">Series</a></li>
-                <li><a href="">Anime</a></li>
-                <li><a href="">Treading</a></li>
+
             </ul>
         </section>
     </header>
 
     <main>
+        <section class="search-movies-container inactive">
+            <h2>Popular Searches</h2>
+
+            <div class="search-movies-container-list">
+                <article>
+                    <img class="movie-search" src="./src/images/img/animated-1.jpg" alt="Movie">
+                    <div class="add-favorites-container">
+                        <img src="./src/images/logos/Heart.svg" alt="favorites">
+                    </div>
+                </article>
+        
+                <article>
+                    <img class="movie-search" src="./src/images/img/animated-1.jpg" alt="Movie">
+                    <div class="add-favorites-container">
+                        <img src="./src/images/logos/Heart.svg" alt="favorites">
+                    </div>
+                </article>
+        
+                <article>
+                    <img class="movie-search" src="./src/images/img/animated-1.jpg" alt="Movie">
+                    <div class="add-favorites-container">
+                        <img src="./src/images/logos/Heart.svg" alt="favorites">
+                    </div>
+                </article>
+        
+                <article>
+                    <img class="movie-search" src="./src/images/img/animated-1.jpg" alt="Movie">
+                    <div class="add-favorites-container">
+                        <img src="./src/images/logos/Heart.svg" alt="favorites">
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <section class="section__treding-movies">
             <h2>Trending Now</h2>
             <div class="movie-container">
