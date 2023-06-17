@@ -2,30 +2,16 @@ window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false)
 
 
-var botonBurger = document.querySelector(".menu__icons-burger");
-var slideMenu = document.getElementById("slide-menu");
-
-botonBurger.addEventListener("click", function() {
-  slideMenu.classList.toggle("inactive");
-});
-
-document.addEventListener("click", function(event) {
-  if (!slideMenu.contains(event.target) && !botonBurger.contains(event.target)) {
-    slideMenu.classList.add("inactive");
-  }
-});
-
-
 function navigator() {
     console.log(location);
-    
+
     if (location.hash.startsWith('#trends')) {
         trendsPage();
     } else if (location.hash.startsWith('#search=')) {
         searchPage();
     } else if (location.hash.startsWith('#movie=')) {
         movieDetailsPage();
-    }  else if (location.hash.startsWith('#category=')) {
+    } else if (location.hash.startsWith('#category=')) {
         categoriesPage();
     } else {
         homePage();
@@ -39,7 +25,9 @@ function categoriesPage() {
 
 function homePage() {
     console.log('Home!!');
-    
+
+    getCategoryMovies();
+    getTrendingMoviesPreview();
 }
 
 function searchPage() {

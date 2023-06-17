@@ -55,13 +55,18 @@ async function getCategoryMovies() {
 
     const genres = data.genres;
 
-    const genresNamesContainer = document.querySelector('.main__section-opcion-movies');
-    const listGenresContainer = document.createElement('ul');
+    const genresNamesContainer = document.querySelector(
+        ".main__section-opcion-movies"
+    );
+    const listGenresContainer = document.createElement("ul");
 
-    genres.forEach(genre => {
-        const itemListGenres = document.createElement('li');
-        const nameGenre = document.createElement('a');
+    genres.forEach((genre) => {
+        const itemListGenres = document.createElement("li");
+        const nameGenre = document.createElement("a");
         nameGenre.textContent = genre.name;
+        nameGenre.addEventListener("click", () => {
+            location.hash = "#category=" + genres.id + genres.name;
+        });
 
         itemListGenres.appendChild(nameGenre);
         listGenresContainer.appendChild(itemListGenres);
@@ -70,6 +75,18 @@ async function getCategoryMovies() {
     genresNamesContainer.appendChild(listGenresContainer);
 }
 
-getCategoryMovies();
+var botonBurger = document.querySelector(".menu__icons-burger");
+var slideMenu = document.getElementById("slide-menu");
 
-getTrendingMoviesPreview();
+botonBurger.addEventListener("click", function () {
+    slideMenu.classList.toggle("inactive");
+});
+
+document.addEventListener("click", function (event) {
+    if (
+        !slideMenu.contains(event.target) &&
+        !botonBurger.contains(event.target)
+    ) {
+        slideMenu.classList.add("inactive");
+    }
+});
