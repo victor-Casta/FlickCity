@@ -231,7 +231,112 @@ main .animated-movie-container .animated-movie-cards-container .animated-movie-s
     font-size: 0.7rem;
 }
 
-footer {
+main .section__Movies-details {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+main .section__Movies-details .picture-details-container {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+
+main .section__Movies-details .picture-details-container .back-arrow {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    background-color: #5050545f;
+}
+main .section__Movies-details .picture-details-container .movie-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+main .section__Movies-details .details-container {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    border-radius: 2rem 2rem 0 0;
+    background-color:  #1f1f1fef;
+}
+main .section__Movies-details .details-container .reviews {
+    display: flex;
+    margin: 2rem 0 0 1rem;
+}
+main .section__Movies-details .details-container .reviews p {
+    margin: 0 0.5rem;
+    color: #f6e44f;
+    font-weight: 500;
+}
+main .section__Movies-details .details-container .title-information h1 {
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin: 0.5rem 0 0.5rem 1rem;
+}
+main .section__Movies-details .details-container .title-information .other-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0.5rem 0 0.5rem 1rem;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+main .section__Movies-details .details-container .title-information .other-details div {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #5f5c5c87;
+}
+main .section__Movies-details .details-container .title-information .custom-list {
+    list-style-type: none;
+    padding-left: 1rem; 
+    color: #FFFFFF;
+    margin: 15px 0 15px 0;
+}
+main .section__Movies-details .details-container .title-information  .custom-list li::before {
+    content: "•";
+    color: var(--primary-color); 
+    margin-right: 5px; 
+}
+main .section__Movies-details .details-container .more-info-conatiner .movie-synopsis {
+    height: auto;
+    padding: 0 1rem;
+}
+main .section__Movies-details .details-container .more-info-conatiner .movie-synopsis p {
+    color: #FFFFFF;
+}
+main .section__Movies-details .details-container .more-info-conatiner .similar-movie h2 {
+    color: #FFFF;
+    font-size: 1rem;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 5px;
+    margin: 3rem 0 2rem 1rem;
+}
+main .section__Movies-details .details-container .more-info-conatiner .similar-movie .similar-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 0 1rem;
+}
+main .section__Movies-details .details-container .more-info-conatiner .similar-movie .similar-images img {
+    max-width: 120px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+footer {    
     width: 100%;
     height: 15vh;
     position: fixed;
