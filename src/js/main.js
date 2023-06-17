@@ -75,8 +75,6 @@ async function getCategoryMovies() {
     genresNamesContainer.appendChild(listGenresContainer);
 }
 
-var botonBurger = document.querySelector(".menu__icons-burger");
-var slideMenu = document.getElementById("slide-menu");
 
 botonBurger.addEventListener("click", function () {
     slideMenu.classList.toggle("inactive");

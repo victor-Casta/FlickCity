@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="./src/css/home.css">
     <script defer src="./node_modules/axios/dist/axios.min.js"></script>
     <script defer src="./src/js/secrets.js"></script>
-    <script src="./src/js/nodes.js"></script>
+    <script defer src="./src/js/nodes.js"></script>
     <script defer src="./src/js/main.js"></script>
     <script defer src="./src/js/navigation.js"></script>
+
 </head>
 
 <body>
-    <header>
+    <header class="header-container">
         <section class="main__section-menu">
             <div class="menu__icons">
                 <img class="menu__icons-logo" src="./src/images/logos/logo.svg" alt="logo">
@@ -47,7 +48,7 @@
 
     <main>
         <!-- inicio Secciones fuera del home -->
-        <section class="search-movies-container inactive">
+        <section class="search-movies-container">
             <h2>Popular Searches</h2>
 
             <div class="search-movies-container-list">
@@ -81,7 +82,7 @@
             </div>
         </section>
 
-        <section class="section__Movies-details inactive">
+        <section class="section__Movies-details">
             <section class="picture-details-container">
                 <div class="back-arrow">
                     <img src="./src/images/logos/arrow-left.svg" alt="back">
@@ -132,7 +133,7 @@
 
         </section>
 
-        <section class="categories-preview-container inactive">
+        <section class="categories-preview-container">
             <div class="back-arrow">
                 <img src="./src/images/logos/arrow-left.svg" alt="back">
             </div>
@@ -277,7 +278,8 @@
             <img src="./src/images/logos/Profile.svg" alt="Profile">
             <p>Profile</p>
         </section>
-    </footer>
+    </footer>   
+
 </body>
 
 </html>
