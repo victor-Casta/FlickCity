@@ -335,6 +335,38 @@ main .section__Movies-details .details-container .more-info-conatiner .similar-m
     object-fit: cover;
 }
 
+main .categories-preview-container {
+    width: 100%;
+    height: auto;
+}
+main .categories-preview-container .back-arrow {
+    width: 40px;
+    height: 40px;
+    margin: 20px 0 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #5050545f;
+}
+main .categories-preview-container h2 {
+    color: #FFFF;
+    font-size: 1rem;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 5px;
+    margin: 20px 0 30px 20px;
+}
+main .categories-preview-container .movies-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 0 1rem;
+}
+main .categories-preview-container .movies-category img{
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+}
 
 footer {    
     width: 100%;
