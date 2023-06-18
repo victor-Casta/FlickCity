@@ -1,3 +1,15 @@
+searchBtn.addEventListener('click', () => {
+    location.hash = '#search=';
+});
+
+searchSecondaryBtn.addEventListener('click', () => {
+    location.hash = '#search=';
+})
+
+homeFooterBtn.addEventListener('click', () => {
+    location.hash = '#home';
+});
+
 window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false)
 
@@ -23,11 +35,11 @@ function categoriesPage() {
     console.log('Categories!!');
 
 
+    headerContain.classList.add('inactive');
     popularSearchMovies.classList.add('inactive');
     moviesDestails.classList.add('inactive');
     categoriesMovies.classList.remove('inactive');
     trendingMovies.classList.add('inactive');
-    headerConatiner.classList.add('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.add('inactive');
 }
@@ -35,7 +47,7 @@ function categoriesPage() {
 function homePage() {
     console.log('Home!!');
 
-    headerContainer.classList.remove('inactive')
+    headerContain.classList.remove('inactive')
     popularSearchMovies.classList.add('inactive');
     moviesDestails.classList.add('inactive');
     categoriesMovies.classList.add('inactive');
@@ -48,8 +60,8 @@ function homePage() {
 function searchPage() {
     console.log('Search!!');
 
-    headerContainer.classList.remove('inactive');
-    headerContainer.style.height = '15vh';
+    headerContain.classList.remove('inactive');
+    headerContain.style.height = '15vh';
     popularSearchMovies.classList.remove('inactive');
     moviesDestails.classList.add('inactive');
     categoriesMovies.classList.add('inactive');
@@ -64,10 +76,6 @@ function movieDetailsPage() {
 
 function trendsPage() {
     console.log('Trends!!');
-}
 
-// homePage();
-// movieDetailsPage();
-// searchPage();
-// categoriesPage();
-// trendsPage();
+    
+}

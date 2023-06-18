@@ -253,7 +253,7 @@ main .section__Movies-details .picture-details-container .back-arrow {
     top: 20px;
     left: 20px;
     border-radius: 50%;
-    background-color: #5050545f;
+    background-color: #505054bb;
 }
 main .section__Movies-details .picture-details-container .movie-picture img {
     width: 100%;
@@ -330,7 +330,7 @@ main .section__Movies-details .details-container .more-info-conatiner .similar-m
     padding: 0 1rem;
 }
 main .section__Movies-details .details-container .more-info-conatiner .similar-movie .similar-images img {
-    max-width: 120px;
+    max-width: 130px;
     height: 200px;
     object-fit: cover;
 }
@@ -347,7 +347,7 @@ main .categories-preview-container .back-arrow {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: #5050545f;
+    background-color: #505054be;
 }
 main .categories-preview-container h2 {
     color: #FFFF;

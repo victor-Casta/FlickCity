@@ -12,9 +12,9 @@ async function getTrendingMoviesPreview() {
     const response = await api.get("trending/movie/day");
     const movies = response.data.results;
 
+    trendingPreviewMoviesContainer.innerHTML = '';
+
     movies.forEach((movie) => {
-        const trendingPreviewMoviesContainer =
-            document.querySelector(".scroll-container");
 
         const movieContainer = document.createElement("article");
         movieContainer.classList.add("cards-container");
@@ -55,10 +55,8 @@ async function getCategoryMovies() {
 
     const genres = data.genres;
 
-    const genresNamesContainer = document.querySelector(
-        ".main__section-opcion-movies"
-    );
-    const listGenresContainer = document.createElement("ul");
+    genresNamesContainer.innerHTML = '';
+    listGenresContainer.innerHTML = '';
 
     genres.forEach((genre) => {
         const itemListGenres = document.createElement("li");
