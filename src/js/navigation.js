@@ -47,10 +47,13 @@ function categoriesPage() {
 function homePage() {
     console.log('Home!!');
 
-    headerContain.classList.remove('inactive')
+    headerContain.classList.remove('inactive');
     popularSearchMovies.classList.add('inactive');
     moviesDestails.classList.add('inactive');
     categoriesMovies.classList.add('inactive');
+    trendingMovies.classList.remove('inactive');
+    newMovies.classList.remove('inactive');
+    animatedMovies.classList.remove('inactive');
 
 
     getCategoryMovies();
@@ -61,7 +64,6 @@ function searchPage() {
     console.log('Search!!');
 
     headerContain.classList.remove('inactive');
-    headerContain.style.height = '15vh';
     popularSearchMovies.classList.remove('inactive');
     moviesDestails.classList.add('inactive');
     categoriesMovies.classList.add('inactive');
