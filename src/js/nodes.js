@@ -14,6 +14,8 @@ const categoriesMovies = document.querySelector('.categories-preview-container')
 const trendingPreviewMoviesContainer = document.querySelector(".scroll-container");
 const genresNamesContainer = document.querySelector(".main__section-opcion-movies");
 const listGenresContainer = document.createElement("ul");
+const moviesCategoryImages = document.querySelector('.movies-category');
+const categoriesNames = document.querySelector('#category-name');
 
 //buttons
 const searchBtn = document.querySelector('#search-img');

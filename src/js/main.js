@@ -63,7 +63,7 @@ async function getCategoryMovies() {
         const nameGenre = document.createElement("a");
         nameGenre.textContent = genre.name;
         nameGenre.addEventListener("click", () => {
-            location.hash = "#category=" + genres.id + genres.name;
+            location.hash = `#category=${genre.id}-${genre.name}`;
         });
 
         itemListGenres.appendChild(nameGenre);
@@ -71,6 +71,33 @@ async function getCategoryMovies() {
     });
 
     genresNamesContainer.appendChild(listGenresContainer);
+}
+
+async function getMoviesByCategory(id) {
+    const response = await api.get('discover/movie', {
+        params: {
+            with_genres: id,
+        },
+    });
+    const movies = response.data.results;
+
+    moviesCategoryImages.innerHTML = '';
+
+    movies.forEach((movie) => {
+        const category = document.createElement('div');
+        category.classList.add("movies-category");
+
+        const movieImg = document.createElement("img");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute(
+            "src",
+            "https://image.tmdb.org/t/p/w300" + movie.poster_path,
+        );
+
+        movieImg.appendChild(category);
+        moviesCategoryImages.appendChild(movieImg);
+
+    });
 }
 
 
