@@ -1,5 +1,5 @@
 searchBtn.addEventListener('click', () => {
-    location.hash = '#search=';
+    location.hash = '#search=' + searchFormInput.value;
 });
 
 searchSecondaryBtn.addEventListener('click', () => {
@@ -9,6 +9,7 @@ searchSecondaryBtn.addEventListener('click', () => {
 homeFooterBtn.addEventListener('click', () => {
     location.hash = '#home';
 });
+
 
 window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false)
@@ -76,6 +77,10 @@ function searchPage() {
     trendingMovies.classList.add('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.add('inactive');
+
+    // ['search' 'platzi']
+    const [_, query] = location.hash.split('='); 
+    getMoviesBySearch(query);
 }
 
 function movieDetailsPage() {

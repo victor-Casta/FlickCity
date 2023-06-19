@@ -335,6 +335,20 @@ main .section__Movies-details .details-container .more-info-conatiner .similar-m
     object-fit: cover;
 }
 
+main .filter-search-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 0 1rem;
+}
+main .filter-search-container img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: -1px 1px 4px 1px rgba(251,151,34,1);
+}
+
 main .categories-preview-container {
     width: 100%;
     height: auto;
@@ -411,4 +425,3 @@ footer section {
   min-width: 150px;
   max-width: 150px;
 }
-

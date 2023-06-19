@@ -100,6 +100,31 @@ async function getMoviesByCategory(id) {
     });
 }
 
+async function getMoviesBySearch(query) {
+    const response = await api.get('search/movie', {
+        params: {
+            query,
+        },
+    });
+    const movies = response.data.results;
+
+    filterMoviesContainer.innerHTML = '';
+
+    movies.forEach((movie) => {
+        const category = document.createElement('div');
+        category.classList.add("movies-category");
+
+        const movieImg = document.createElement("img");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute(
+            "src",
+            "https://image.tmdb.org/t/p/w300" + movie.poster_path,
+        );
+
+        movieImg.appendChild(category);
+        filterMoviesContainer.appendChild(movieImg);
+    });
+}
 
 botonBurger.addEventListener("click", function () {
     slideMenu.classList.toggle("inactive");

@@ -16,6 +16,7 @@ const genresNamesContainer = document.querySelector(".main__section-opcion-movie
 const listGenresContainer = document.createElement("ul");
 const moviesCategoryImages = document.querySelector('.movies-category');
 const categoriesNames = document.querySelector('#category-name');
+const filterMoviesContainer = document.querySelector('.filter-search-container');
 
 //buttons
 const searchBtn = document.querySelector('#search-img');
@@ -23,3 +24,7 @@ const botonBurger = document.querySelector(".menu__icons-burger");
 const slideMenu = document.getElementById("slide-menu");
 const homeFooterBtn = document.querySelector('.home-btn');
 const searchSecondaryBtn = document.querySelector('.search-btn-secondary');
+
+
+//input
+const searchFormInput = document.querySelector('#input-search');
