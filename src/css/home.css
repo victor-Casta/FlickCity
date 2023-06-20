@@ -316,23 +316,25 @@ main .section__Movies-details .details-container .more-info-conatiner .movie-syn
 main .section__Movies-details .details-container .more-info-conatiner .movie-synopsis p {
     color: #FFFFFF;
 }
-main .section__Movies-details .details-container .more-info-conatiner .similar-movie h2 {
+main .section__Movies-details .details-container .more-info-conatiner .similar-movie {
+    overflow-x: auto;
+    white-space: nowrap; 
+}
+main .section__Movies-details .details-container .more-info-conatiner h2 {
     color: #FFFF;
     font-size: 1rem;
     border-left: 5px solid var(--primary-color);
     padding-left: 5px;
     margin: 3rem 0 2rem 1rem;
 }
-main .section__Movies-details .details-container .more-info-conatiner .similar-movie .similar-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    padding: 0 1rem;
-}
+
 main .section__Movies-details .details-container .more-info-conatiner .similar-movie .similar-images img {
+    display: inline-block;
     max-width: 130px;
     height: 200px;
+    margin: 0 10px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 main .filter-search-container {
