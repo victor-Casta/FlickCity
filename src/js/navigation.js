@@ -64,7 +64,7 @@ function homePage() {
 
 
     getCategoryMovies();
-    getTrendingMoviesPreview();     
+    getTrendingMoviesPreview();   
 }
 
 function searchPage() {
@@ -93,6 +93,10 @@ function movieDetailsPage() {
     trendingMovies.classList.add('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.add('inactive');
+
+    // ['movie' '5457452']
+    const [_, movieId] = location.hash.split('='); 
+    getMovieById(movieId);
 }
 
 function trendsPage() {

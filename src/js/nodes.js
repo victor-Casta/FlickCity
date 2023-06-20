@@ -28,3 +28,12 @@ const searchSecondaryBtn = document.querySelector('.search-btn-secondary');
 
 //input
 const searchFormInput = document.querySelector('#input-search');
+
+//movie details
+const movieDetailScore = document.querySelector('.calification-movie');
+const movieDetailTitle = document.querySelector('.movie-title');
+const movieDetailYear = document.querySelector('.movie-year');
+const movieDetailDescription = document.querySelector('.movie-description');
+const movieDetailImage = document.querySelector('.movie-image');
+const similarMoviesContainer = document.querySelector('.similar-images');
+const customList = document.querySelector('.custom-list');

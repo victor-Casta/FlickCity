@@ -290,7 +290,7 @@ main .section__Movies-details .details-container .title-information .other-detai
     color: #FFFFFF;
 }
 main .section__Movies-details .details-container .title-information .other-details div {
-    width: 70px;
+    width: 90px;
     height: 30px;
     display: flex;
     justify-content: center;

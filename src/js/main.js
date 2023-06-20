@@ -18,6 +18,9 @@ async function getTrendingMoviesPreview() {
 
         const movieContainer = document.createElement("article");
         movieContainer.classList.add("cards-container");
+        movieContainer.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        })
 
         const movieImg = document.createElement("img");
         movieImg.classList.add("trending-image");
@@ -93,7 +96,10 @@ async function getMoviesByCategory(id) {
             "src",
             "https://image.tmdb.org/t/p/w300" + movie.poster_path,
         );
-
+        movieImg.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        });
+        
         movieImg.appendChild(category);
         moviesCategoryImages.appendChild(movieImg);
 
@@ -120,11 +126,31 @@ async function getMoviesBySearch(query) {
             "src",
             "https://image.tmdb.org/t/p/w300" + movie.poster_path,
         );
+        movieImg.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        })
 
         movieImg.appendChild(category);
         filterMoviesContainer.appendChild(movieImg);
     });
 }
+
+async function getMovieById(id) {
+    const dataMovie = await api.get("movie/" + id);
+    console.log(dataMovie);
+
+    movieDetailScore.textContent =  dataMovie.data.vote_average;
+    movieDetailTitle.textContent =  dataMovie.data.title;
+    movieDetailDescription.textContent =  dataMovie.data.overview;
+    movieDetailYear.textContent = dataMovie.data.release_date;
+    
+    movieDetailImage.setAttribute('alt', dataMovie.data.title);
+    movieDetailImage.setAttribute(
+        "src",
+        "https://image.tmdb.org/t/p/w500" + dataMovie.data.poster_path,
+    ); 
+}
+
 
 botonBurger.addEventListener("click", function () {
     slideMenu.classList.toggle("inactive");
