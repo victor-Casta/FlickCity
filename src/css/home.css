@@ -205,9 +205,16 @@ main .animated-movie-container .animated-movie-cards-container {
 main .movie-container .cards-container h3,
 main .new-movie-container .new-movie-cards-container h3,
 main .animated-movie-container .animated-movie-cards-container h3 {
-    color: #FFFFFF;
-    margin: 10px 0 14px 0;
+    color: #FFF;
+    margin: 20px 0 14px 0;
     text-align: center;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 main .section__treding-movies .movie-container .scroll-container .new-movie-star,
 main .new-movie-container .new-movie-cards-container .new-movie-star,

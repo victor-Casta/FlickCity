@@ -51,6 +51,102 @@ async function getTrendingMoviesPreview() {
     });
 }
 
+async function getTvSeriesPreview() {
+    const response = await api.get('discover/movie', {
+        params: {
+            with_genres: 10770,
+        },
+    });
+    const movies = response.data.results;
+
+    console.log(movies);
+    tvSeriesPreviewContainer.innerHTML = '';
+
+    movies.forEach((movie) => {
+
+        const movieContainer = document.createElement("article");
+        movieContainer.classList.add("new-movie-cards-container");
+        movieContainer.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        })
+        
+        const movieImg = document.createElement("img");
+        movieImg.classList.add("new-movie-image");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute(
+            "src",
+            "https://image.tmdb.org/t/p/w300" + movie.poster_path
+        );
+
+        const movieName = document.createElement("h3");
+        movieName.textContent = movie.title;
+
+        const starImage = document.createElement("img");
+        starImage.setAttribute("src", "./src/images/logos/Star.svg");
+
+        const calificationMovieContainer = document.createElement("div");
+        calificationMovieContainer.classList.add("new-movie-star");
+
+        const calificationTrendingMovie = document.createElement("p");
+        calificationTrendingMovie.textContent = movie.vote_average;
+
+        movieContainer.appendChild(movieImg);
+        movieContainer.appendChild(movieName);
+        calificationMovieContainer.appendChild(starImage);
+        calificationMovieContainer.appendChild(calificationTrendingMovie);
+        tvSeriesPreviewContainer.appendChild(movieContainer);
+        movieContainer.appendChild(calificationMovieContainer);
+    });
+}
+
+async function getAnimatedMoviesPreview() {
+    const response = await api.get('discover/movie', {
+        params: {
+            with_genres: 16,
+        },
+    });
+    const movies = response.data.results;
+
+    console.log(movies);
+    aminatedPreviewContainer.innerHTML = '';
+
+    movies.forEach((movie) => {
+
+        const movieContainer = document.createElement("article");
+        movieContainer.classList.add("animated-movie-cards-container");
+        movieContainer.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        })
+        
+        const movieImg = document.createElement("img");
+        movieImg.classList.add("animated-movie-image");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute(
+            "src",
+            "https://image.tmdb.org/t/p/w300" + movie.poster_path
+        );
+
+        const movieName = document.createElement("h3");
+        movieName.textContent = movie.title;
+
+        const starImage = document.createElement("img");
+        starImage.setAttribute("src", "./src/images/logos/Star.svg");
+
+        const calificationMovieContainer = document.createElement("div");
+        calificationMovieContainer.classList.add("new-movie-star");
+
+        const calificationTrendingMovie = document.createElement("p");
+        calificationTrendingMovie.textContent = movie.vote_average;
+
+        movieContainer.appendChild(movieImg);
+        movieContainer.appendChild(movieName);
+        calificationMovieContainer.appendChild(starImage);
+        calificationMovieContainer.appendChild(calificationTrendingMovie);
+        aminatedPreviewContainer.appendChild(movieContainer);
+        movieContainer.appendChild(calificationMovieContainer);
+    });
+}
+
 async function getCategoryMovies() {
     const response = await api.get("genre/movie/list");
     const data = response.data;
@@ -84,6 +180,7 @@ async function getMoviesByCategory(id) {
     });
     const movies = response.data.results;
 
+    console.log(movies);
     moviesCategoryImages.innerHTML = '';
 
     movies.forEach((movie) => {
@@ -137,7 +234,8 @@ async function getMoviesBySearch(query) {
 
 async function getMovieById(id) {
     const dataMovie = await api.get("movie/" + id);
-
+    
+    console.log(dataMovie);
     movieDetailScore.textContent = dataMovie.data.vote_average;
     movieDetailTitle.textContent = dataMovie.data.title;
     movieDetailDescription.textContent = dataMovie.data.overview;

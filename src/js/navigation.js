@@ -64,7 +64,9 @@ function homePage() {
 
 
     getCategoryMovies();
-    getTrendingMoviesPreview();   
+    getTrendingMoviesPreview();  
+    getTvSeriesPreview();
+    getAnimatedMoviesPreview()
 }
 
 function searchPage() {
