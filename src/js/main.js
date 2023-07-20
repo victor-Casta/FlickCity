@@ -8,6 +8,18 @@ const api = axios.create({
     },
 });
 
+//utils 
+
+const lazyLoader = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const url = entry.target.getAttribute('data-img')
+            entry.target.setAttribute('src', url); 
+        }
+    })
+})
+
+
 async function getTrendingMoviesPreview() {
     const response = await api.get("trending/movie/day");
     const movies = response.data.results;
@@ -17,16 +29,16 @@ async function getTrendingMoviesPreview() {
     movies.forEach((movie) => {
 
         const movieContainer = document.createElement("article");
-        movieContainer.classList.add("cards-container");
+        movieContainer.classList.add("cards-container", "blur-out");
         movieContainer.addEventListener('click', () => {
             location.hash = '#movie=' + movie.id;
         })
 
         const movieImg = document.createElement("img");
-        movieImg.classList.add("trending-image");
+        movieImg.classList.add("trending-image", "blur-in-expand");
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
-            "src",
+            "data-img",
             "https://image.tmdb.org/t/p/w300" + movie.poster_path
         );
 
@@ -48,6 +60,8 @@ async function getTrendingMoviesPreview() {
         calificationMovieContainer.appendChild(calificationTrendingMovie);
         trendingPreviewMoviesContainer.appendChild(movieContainer);
         movieContainer.appendChild(calificationMovieContainer);
+
+        lazyLoader.observe(movieImg);
     });
 }
 
@@ -71,10 +85,10 @@ async function getTvSeriesPreview() {
         })
         
         const movieImg = document.createElement("img");
-        movieImg.classList.add("new-movie-image");
+        movieImg.classList.add("new-movie-image", "blur-in-expand");
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
-            "src",
+            "data-img",
             "https://image.tmdb.org/t/p/w300" + movie.poster_path
         );
 
@@ -96,6 +110,8 @@ async function getTvSeriesPreview() {
         calificationMovieContainer.appendChild(calificationTrendingMovie);
         tvSeriesPreviewContainer.appendChild(movieContainer);
         movieContainer.appendChild(calificationMovieContainer);
+
+        lazyLoader.observe(movieImg);
     });
 }
 
@@ -119,10 +135,10 @@ async function getAnimatedMoviesPreview() {
         })
         
         const movieImg = document.createElement("img");
-        movieImg.classList.add("animated-movie-image");
+        movieImg.classList.add("animated-movie-image", "blur-in-expand");
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
-            "src",
+            "data-img",
             "https://image.tmdb.org/t/p/w300" + movie.poster_path
         );
 
@@ -144,6 +160,8 @@ async function getAnimatedMoviesPreview() {
         calificationMovieContainer.appendChild(calificationTrendingMovie);
         aminatedPreviewContainer.appendChild(movieContainer);
         movieContainer.appendChild(calificationMovieContainer);
+
+        lazyLoader.observe(movieImg);
     });
 }
 
@@ -226,6 +244,13 @@ async function getMoviesBySearch(query) {
         movieImg.addEventListener('click', () => {
             location.hash = '#movie=' + movie.id;
         })
+
+        movieImg.addEventListener('error', () => {
+            
+            movieImg.setAttribute(
+                'src', 
+                'https://i.pinimg.com/564x/d3/d1/8a/d3d18af46e0eb08049ecdbfebb7dc263.jpg');
+        });
 
         movieImg.appendChild(category);
         filterMoviesContainer.appendChild(movieImg);

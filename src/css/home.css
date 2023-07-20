@@ -8,20 +8,24 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
 }
+
 .inactive {
     display: none;
 }
+
 
 /*HOME VIEW*/
 header {
     width: 100%;
     height: 24vh;
 }
+
 header .main__section-menu {
     width: 100%;
     height: 30%;
     position: relative;
 }
+
 header .main__section-menu .menu__icons {
     width: 100%;
     height: 100%;
@@ -29,9 +33,11 @@ header .main__section-menu .menu__icons {
     align-items: center;
     justify-content: space-between;
 }
+
 header .main__section-menu .menu__icons .menu__icons-logo {
     margin-left: 20px;
 }
+
 header .main__section-menu .menu__icons .menu__icons-burger {
     margin-right: 20px;
 }
@@ -46,6 +52,7 @@ header .main__section-menu .slide-menu {
     background-color: var(--black-color);
     border-radius: 18px 0 0 18px;
 }
+
 header .main__section-menu .slide-menu ul {
     display: flex;
     flex-direction: column;
@@ -54,12 +61,14 @@ header .main__section-menu .slide-menu ul {
     list-style-type: none;
     margin-top: 30px;
 }
+
 header .main__section-menu .slide-menu ul li a {
     text-decoration: none;
     color: #FFFF;
     border-left: 3px solid var(--primary-color);
     padding-left: 10px;
 }
+
 header .main__section-search {
     width: 100%;
     height: auto;
@@ -68,6 +77,7 @@ header .main__section-search {
     justify-content: center;
     margin-top: 10px;
 }
+
 header .main__section-search span {
     width: 246px;
     display: flex;
@@ -77,6 +87,7 @@ header .main__section-search span {
     background-color: #000000;
     padding: 5px 15px;
 }
+
 header .main__section-search span input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -91,20 +102,24 @@ header .main__section-search span input {
     font-size: 0.8rem;
     width: 230px;
 }
+
 header .main__section-opcion-movies {
     width: 100%;
     height: auto;
     overflow-x: scroll;
 }
+
 header .main__section-opcion-movies ul {
     display: flex;
     gap: 10px;
     white-space: nowrap;
 }
+
 header .main__section-opcion-movies ul li {
     display: inline-block;
     list-style-type: none;
 }
+
 header .main__section-opcion-movies ul li a {
     text-decoration: none;
     color: #FFFF;
@@ -119,6 +134,7 @@ main .search-movies-container-list {
     width: 100%;
     height: auto;
 }
+
 main .search-movies-container h2 {
     color: #FFFF;
     font-size: 1rem;
@@ -127,23 +143,27 @@ main .search-movies-container h2 {
     padding-left: 5px;
     margin-bottom: 20px;
 }
+
 main .search-movies-container-list {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 20px;
 }
+
 main .search-movies-container-list .movie-search {
     width: 150px;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
 }
+
 main .search-movies-container-list article {
     width: 160px;
     height: 180px;
     position: relative;
 }
+
 main .search-movies-container-list article .add-favorites-container {
     width: 30px;
     height: 30px;
@@ -163,6 +183,7 @@ main .section__treding-movies {
     width: 100%;
     height: auto;
 }
+
 main .section__treding-movies h2,
 main .section__new-movies h2,
 main .section__animated-movies h2 {
@@ -172,26 +193,50 @@ main .section__animated-movies h2 {
     padding-left: 5px;
     margin: 0 0 20px 20px;
 }
+
 main .movie-container,
 main .new-movie-container,
 main .animated-movie-container {
     overflow-x: auto;
 }
+
 main .movie-container .scroll-container,
-main .new-movie-container .new-movies-scroll-container, 
+main .new-movie-container .new-movies-scroll-container,
 main .animated-movie-container .animated-movies-scroll-container {
     display: flex;
     white-space: nowrap;
 }
+
 main .movie-container .cards-container .trending-image,
 main .new-movie-container .new-movies-scroll-container .new-movie-cards-container .new-movie-image,
 main .animated-movie-container .animated-movies-scroll-container .animated-movie-cards-container .animated-movie-image {
-    width: 250px;
+    --s: 250px;
+    /* the size of the image */
+    --b: 8px;
+    /* the border thickness*/
+    --g: 14px;
+    /* the gap */
+    --c: rgba(251, 151, 34, 1);
+    /* the color */
+    width: var(--s);
+    aspect-ratio: 1;
+    outline: calc(var(--s)/2) solid #0009;
+    outline-offset: calc(var(--s)/-2);
+    cursor: pointer;
+    transition: .3s;
     height: 350px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: -1px 1px 12px 1px rgba(251,151,34,1);
+    box-shadow: -1px 1px 12px 1px rgba(251, 151, 34, 1);
 }
+
+main .movie-container .cards-container .trending-image:hover,
+main .new-movie-container .new-movies-scroll-container .new-movie-cards-container .new-movie-image:hover,
+main .animated-movie-container .animated-movies-scroll-container .animated-movie-cards-container .animated-movie-image:hover {
+    outline: var(--b) solid var(--c);
+    outline-offset: var(--g);
+}
+
 main .movie-container .cards-container,
 main .new-movie-container .new-movie-cards-container,
 main .animated-movie-container .animated-movie-cards-container {
@@ -199,9 +244,10 @@ main .animated-movie-container .animated-movie-cards-container {
     flex-direction: column;
     align-items: center;
     flex: 0 0 auto;
-    width: 300px; 
-    padding: 10px;
+    width: 300px;
+    padding: 29px 10px;
 }
+
 main .movie-container .cards-container h3,
 main .new-movie-container .new-movie-cards-container h3,
 main .animated-movie-container .animated-movie-cards-container h3 {
@@ -216,6 +262,7 @@ main .animated-movie-container .animated-movie-cards-container h3 {
     text-overflow: ellipsis;
     white-space: normal;
 }
+
 main .section__treding-movies .movie-container .scroll-container .new-movie-star,
 main .new-movie-container .new-movie-cards-container .new-movie-star,
 main .animated-movie-container .animated-movie-cards-container .animated-movie-star {
@@ -223,6 +270,7 @@ main .animated-movie-container .animated-movie-cards-container .animated-movie-s
     align-items: center;
     gap: 10px;
 }
+
 main .section__treding-movies .movie-container .scroll-container .new-movie-star img,
 main .new-movie-container .new-movie-cards-container .new-movie-star img,
 main .animated-movie-container .animated-movie-cards-container .animated-movie-star img {
@@ -230,8 +278,9 @@ main .animated-movie-container .animated-movie-cards-container .animated-movie-s
     height: 15px;
     object-fit: cover;
 }
+
 main .section__treding-movies .movie-container .scroll-container .new-movie-star p,
-main .new-movie-container .new-movie-cards-container .new-movie-star p, 
+main .new-movie-container .new-movie-cards-container .new-movie-star p,
 main .animated-movie-container .animated-movie-cards-container .animated-movie-star p {
     color: #FFFFFF;
     font-weight: 500;
@@ -262,32 +311,38 @@ main .section__Movies-details .picture-details-container .back-arrow {
     border-radius: 50%;
     background-color: #505054bb;
 }
+
 main .section__Movies-details .picture-details-container .movie-picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 main .section__Movies-details .details-container {
     width: 100%;
     height: auto;
     position: absolute;
     border-radius: 2rem 2rem 0 0;
-    background-color:  #1f1f1fef;
+    background-color: #1f1f1fef;
 }
+
 main .section__Movies-details .details-container .reviews {
     display: flex;
     margin: 2rem 0 0 1rem;
 }
+
 main .section__Movies-details .details-container .reviews p {
     margin: 0 0.5rem;
     color: #f6e44f;
     font-weight: 500;
 }
+
 main .section__Movies-details .details-container .title-information h1 {
     font-size: 1rem;
     color: #FFFFFF;
     margin: 0.5rem 0 0.5rem 1rem;
 }
+
 main .section__Movies-details .details-container .title-information .other-details {
     display: flex;
     align-items: center;
@@ -296,6 +351,7 @@ main .section__Movies-details .details-container .title-information .other-detai
     font-weight: 300;
     color: #FFFFFF;
 }
+
 main .section__Movies-details .details-container .title-information .other-details div {
     width: 90px;
     height: 30px;
@@ -305,28 +361,34 @@ main .section__Movies-details .details-container .title-information .other-detai
     border-radius: 12px;
     background-color: #5f5c5c87;
 }
+
 main .section__Movies-details .details-container .title-information .custom-list {
     list-style-type: none;
-    padding-left: 1rem; 
+    padding-left: 1rem;
     color: #FFFFFF;
     margin: 15px 0 15px 0;
 }
-main .section__Movies-details .details-container .title-information  .custom-list li::before {
+
+main .section__Movies-details .details-container .title-information .custom-list li::before {
     content: "•";
-    color: var(--primary-color); 
-    margin-right: 5px; 
+    color: var(--primary-color);
+    margin-right: 5px;
 }
+
 main .section__Movies-details .details-container .more-info-conatiner .movie-synopsis {
     height: auto;
     padding: 0 1rem;
 }
+
 main .section__Movies-details .details-container .more-info-conatiner .movie-synopsis p {
     color: #FFFFFF;
 }
+
 main .section__Movies-details .details-container .more-info-conatiner .similar-movie {
     overflow-x: auto;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
+
 main .section__Movies-details .details-container .more-info-conatiner h2 {
     color: #FFFF;
     font-size: 1rem;
@@ -339,29 +401,31 @@ main .section__Movies-details .details-container .more-info-conatiner .similar-m
     display: inline-block;
     max-width: 130px;
     height: 200px;
-    margin: 0 10px;
+    margin: 0 5px 150px 15px;
     object-fit: cover;
     border-radius: 8px;
 }
 
 main .filter-search-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 30px;
     padding: 0 1rem;
 }
+
 main .filter-search-container img {
     width: 140px;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: -1px 1px 4px 1px rgba(251,151,34,1);
+    box-shadow: -1px 1px 4px 1px rgba(251, 151, 34, 1);
 }
 
 main .categories-preview-container {
     width: 100%;
     height: auto;
 }
+
 main .categories-preview-container .back-arrow {
     width: 40px;
     height: 40px;
@@ -372,6 +436,7 @@ main .categories-preview-container .back-arrow {
     border-radius: 50%;
     background-color: #505054be;
 }
+
 main .categories-preview-container h2 {
     color: #FFFF;
     font-size: 1rem;
@@ -379,21 +444,23 @@ main .categories-preview-container h2 {
     padding-left: 5px;
     margin: 20px 0 30px 20px;
 }
+
 main .categories-preview-container .movies-category {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 30px;
     padding: 0 1rem;
 }
-main .categories-preview-container .movies-category img{
+
+main .categories-preview-container .movies-category img {
     width: 140px;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: -1px 1px 4px 1px rgba(251,151,34,1);
+    box-shadow: -1px 1px 4px 1px rgba(251, 151, 34, 1);
 }
 
-footer {    
+footer {
     width: 100%;
     height: 15vh;
     position: fixed;
@@ -405,6 +472,7 @@ footer {
     border-radius: 10px 10px 0 0;
     align-items: center;
 }
+
 footer section {
     display: flex;
     flex-direction: column;
@@ -412,25 +480,62 @@ footer section {
     align-items: center;
     color: #FFFFFF;
 }
+
 .trendingPreview-movieList {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  height: 241px;
-  padding-left: 24px;
-  padding-bottom: 16px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 241px;
+    padding-left: 24px;
+    padding-bottom: 16px;
 }
 
 .trendingPreview-movieList .movie-container {
-  display: inline-block;
-  margin-right: 8px;
+    display: inline-block;
+    margin-right: 8px;
 }
 
 .trendingPreview-movieList .movie-container .movie-img {
-  height: 225px;
-  min-height: 225px;
-  max-height: 225px;
-  width: 150px;
-  min-width: 150px;
-  max-width: 150px;
+    height: 225px;
+    min-height: 225px;
+    max-height: 225px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
 }
+
+.img-inactive {
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    margin: 30px 20px;
+    background-color: #FFF;
+}
+
+
+/* ----------------------------------------------
+  Generated by AnimatiSS
+  Licensed under FreeBSD License
+  URL: https://xsgames.co/animatiss
+  Twitter: @xsgames_
+---------------------------------------------- */
+
+.blur-in-expand {
+    animation: blur-in-expand 0.4s linear both
+}
+
+@keyframes blur-in-expand {
+    0% {
+        transform: scale(0);
+        filter: blur(12px);
+        opacity: 0
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1
+    }
+}
+
+
