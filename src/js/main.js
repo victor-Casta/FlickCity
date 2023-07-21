@@ -37,7 +37,7 @@ async function getTrendingMoviesPreview() {
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
             "data-img",
-            "https://image.tmdb.org/t/p/w300" + movie.poster_path
+            "https://image.tmdb.org/t/p/w500" + movie.poster_path
         );
 
         const movieName = document.createElement("h3");
@@ -135,7 +135,7 @@ async function getAnimatedMoviesPreview() {
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
             "data-img",
-            "https://image.tmdb.org/t/p/w300" + movie.poster_path
+            "https://image.tmdb.org/t/p/w500" + movie.poster_path
         );
 
         const movieName = document.createElement("h3");
@@ -192,6 +192,7 @@ async function getMoviesByCategory(id) {
             with_genres: id,
         },
     });
+    maxPage = response.data.total_pages;
     const movies = response.data.results;
 
     moviesCategoryImages.innerHTML = "";
@@ -214,17 +215,6 @@ async function getMoviesByCategory(id) {
         moviesCategoryImages.appendChild(movieImg);
     });
 
-    // const btnContainer = document.createElement("div");
-    // btnContainer.classList.add("btn-container");
-    // moviesCategoryImages.appendChild(btnContainer);
-
-    // btnContainer.innerHTML = "";
-
-    // const btnLoadMore = document.createElement("button");
-    // btnLoadMore.innerText = "Cargar mas";
-    // btnLoadMore.addEventListener("click", getPaginatedCategoryMovies);
-    // btnContainer.appendChild(btnLoadMore);
-
     console.log(movies);
 }
 
@@ -233,15 +223,19 @@ async function getPaginatedCategoryMovies() {
 
     const scrollIsBottom = scrollTop + clientHeight >= scrollHeight - 15;
 
-    if (scrollIsBottom) {
+    const pageIsNotMax = page < maxPage;
+
+    if (scrollIsBottom && pageIsNotMax) {
         page++;
         const response = await api.get("discover/movie", {
             params: {
                 page,
             },
         });
+        console.log(response.data);
         const movies = response.data.results;
-        console.log(movies);
+        
+
 
         movies.forEach((movie) => {
             const category = document.createElement("div");
