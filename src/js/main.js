@@ -198,7 +198,6 @@ async function getMoviesByCategory(id) {
     });
     const movies = response.data.results;
 
-    console.log(movies);
     moviesCategoryImages.innerHTML = '';
 
     movies.forEach((movie) => {
@@ -209,7 +208,7 @@ async function getMoviesByCategory(id) {
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
             "src",
-            "https://image.tmdb.org/t/p/w300" + movie.poster_path,
+            "https://image.tmdb.org/t/p/w500" + movie.poster_path,
         );
         movieImg.addEventListener('click', () => {
             location.hash = '#movie=' + movie.id;
@@ -219,6 +218,66 @@ async function getMoviesByCategory(id) {
         moviesCategoryImages.appendChild(movieImg);
 
     });
+
+    
+    const btnContainer = document.createElement('div');
+    btnContainer.classList.add('btn-container');
+    moviesCategoryImages.appendChild(btnContainer);
+
+    btnContainer.innerHTML = '';
+
+    const btnLoadMore = document.createElement('button');
+    btnLoadMore.innerText = 'Cargar mas';
+    btnLoadMore.addEventListener('click', getPaginatedCategoryMovies)
+    btnContainer.appendChild(btnLoadMore);
+
+    console.log(movies);
+
+}
+
+let page = 1;
+
+async function getPaginatedCategoryMovies() {
+    page++;
+    const response = await api.get('discover/movie', {
+        params: {
+            page,
+        },
+    });
+    const movies = response.data.results;
+    console.log(movies);
+
+
+
+    movies.forEach((movie) => {
+        const category = document.createElement('div');
+        category.classList.add("movies-category");
+
+        const movieImg = document.createElement("img");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute(
+            "src",
+            "https://image.tmdb.org/t/p/w500" + movie.poster_path,
+        );
+        movieImg.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        });
+
+        movieImg.appendChild(category);
+        moviesCategoryImages.appendChild(movieImg);
+
+    });
+
+    const btnContainer = document.createElement('div');
+    btnContainer.classList.add('btn-container');
+    moviesCategoryImages.appendChild(btnContainer);
+
+    btnContainer.innerHTML = '';
+
+    const btnLoadMore = document.createElement('button');
+    btnLoadMore.innerText = 'Cargar mas';
+    btnLoadMore.addEventListener('click', getPaginatedCategoryMovies)
+    btnContainer.appendChild(btnLoadMore);
 }
 
 async function getMoviesBySearch(query) {
@@ -311,4 +370,4 @@ document.addEventListener("click", function (event) {
     ) {
         slideMenu.classList.add("inactive");
     }
-});
+}); 
