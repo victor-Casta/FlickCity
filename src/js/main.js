@@ -28,8 +28,13 @@ async function getTrendingMoviesPreview() {
     movies.forEach((movie) => {
         const movieContainer = document.createElement("article");
         movieContainer.classList.add("cards-container", "blur-out");
-        movieContainer.addEventListener("click", () => {
-            location.hash = "#movie=" + movie.id;
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("movie-btn--liked");
+
+            //agregar movie a local storage
         });
 
         const movieImg = document.createElement("img");
@@ -39,6 +44,9 @@ async function getTrendingMoviesPreview() {
             "data-img",
             "https://image.tmdb.org/t/p/w500" + movie.poster_path
         );
+        movieImg.addEventListener("click", () => {
+            location.hash = "#movie=" + movie.id;
+        });
 
         const movieName = document.createElement("h3");
         movieName.textContent = movie.title;
@@ -58,6 +66,7 @@ async function getTrendingMoviesPreview() {
         calificationMovieContainer.appendChild(calificationTrendingMovie);
         trendingPreviewMoviesContainer.appendChild(movieContainer);
         movieContainer.appendChild(calificationMovieContainer);
+        movieContainer.appendChild(linkedBtnContainer);
 
         lazyLoader.observe(movieImg);
     });
@@ -77,9 +86,15 @@ async function getTvSeriesPreview() {
     movies.forEach((movie) => {
         const movieContainer = document.createElement("article");
         movieContainer.classList.add("new-movie-cards-container");
-        movieContainer.addEventListener("click", () => {
-            location.hash = "#movie=" + movie.id;
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("movie-btn--liked");
+
+            //agregar movie a local storage
         });
+
 
         const movieImg = document.createElement("img");
         movieImg.classList.add("new-movie-image", "blur-in-expand");
@@ -88,6 +103,9 @@ async function getTvSeriesPreview() {
             "data-img",
             "https://image.tmdb.org/t/p/w300" + movie.poster_path
         );
+        movieImg.addEventListener("click", () => {
+            location.hash = "#movie=" + movie.id;
+        });
 
         const movieName = document.createElement("h3");
         movieName.textContent = movie.title;
@@ -107,6 +125,7 @@ async function getTvSeriesPreview() {
         calificationMovieContainer.appendChild(calificationTrendingMovie);
         tvSeriesPreviewContainer.appendChild(movieContainer);
         movieContainer.appendChild(calificationMovieContainer);
+        movieContainer.appendChild(linkedBtnContainer);
 
         lazyLoader.observe(movieImg);
     });
@@ -126,9 +145,15 @@ async function getAnimatedMoviesPreview() {
     movies.forEach((movie) => {
         const movieContainer = document.createElement("article");
         movieContainer.classList.add("animated-movie-cards-container");
-        movieContainer.addEventListener("click", () => {
-            location.hash = "#movie=" + movie.id;
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("movie-btn--liked");
+
+            //agregar movie a local storage
         });
+
 
         const movieImg = document.createElement("img");
         movieImg.classList.add("animated-movie-image", "blur-in-expand");
@@ -137,6 +162,10 @@ async function getAnimatedMoviesPreview() {
             "data-img",
             "https://image.tmdb.org/t/p/w500" + movie.poster_path
         );
+        movieImg.addEventListener("click", () => {
+            location.hash = "#movie=" + movie.id;
+        });
+
 
         const movieName = document.createElement("h3");
         movieName.textContent = movie.title;
@@ -156,6 +185,7 @@ async function getAnimatedMoviesPreview() {
         calificationMovieContainer.appendChild(calificationTrendingMovie);
         aminatedPreviewContainer.appendChild(movieContainer);
         movieContainer.appendChild(calificationMovieContainer);
+        movieContainer.appendChild(linkedBtnContainer);
 
         lazyLoader.observe(movieImg);
     });
@@ -198,8 +228,16 @@ async function getMoviesByCategory(id) {
     moviesCategoryImages.innerHTML = "";
 
     movies.forEach((movie) => {
-        const category = document.createElement("div");
-        category.classList.add("movies-category");
+        const cardContainer = document.createElement("article");
+        cardContainer.classList.add("categories-card-container");
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn-categories");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("categories-btn--liked");
+
+            //agregar movie a local storage
+        });
 
         const movieImg = document.createElement("img");
         movieImg.setAttribute("alt", movie.title);
@@ -211,8 +249,9 @@ async function getMoviesByCategory(id) {
             location.hash = "#movie=" + movie.id;
         });
 
-        movieImg.appendChild(category);
-        moviesCategoryImages.appendChild(movieImg);
+        moviesCategoryImages.appendChild(cardContainer);
+        cardContainer.appendChild(linkedBtnContainer);
+        cardContainer.appendChild(movieImg);
     });
 
     console.log(movies);
@@ -242,8 +281,16 @@ function getPaginatedCategoryMovies(id) {
             const movies = response.data.results;
         
             movies.forEach((movie) => {
-                const category = document.createElement("div");
-                category.classList.add("movies-category");
+                const cardContainer = document.createElement("article");
+                cardContainer.classList.add("categories-card-container");
+        
+                const linkedBtnContainer = document.createElement('div');
+                linkedBtnContainer.classList.add("linked-btn-categories");
+                linkedBtnContainer.addEventListener('click', () => {
+                    linkedBtnContainer.classList.toggle("categories-btn--liked");
+        
+                    //agregar movie a local storage
+                });
         
                 const movieImg = document.createElement("img");
                 movieImg.setAttribute("alt", movie.title);
@@ -255,8 +302,9 @@ function getPaginatedCategoryMovies(id) {
                     location.hash = "#movie=" + movie.id;
                 });
         
-                movieImg.appendChild(category);
-                moviesCategoryImages.appendChild(movieImg);
+                moviesCategoryImages.appendChild(cardContainer);
+                cardContainer.appendChild(linkedBtnContainer);
+                cardContainer.appendChild(movieImg);
             });
         }
     }
@@ -285,8 +333,16 @@ function getPaginatedMoviesBySearch(query) {
             const movies = response.data.results;
         
             movies.forEach((movie) => {
-                const category = document.createElement("div");
-                category.classList.add("movies-category");
+                const cardContainer = document.createElement("article");
+                cardContainer.classList.add("categories-card-container");
+        
+                const linkedBtnContainer = document.createElement('div');
+                linkedBtnContainer.classList.add("linked-btn-categories");
+                linkedBtnContainer.addEventListener('click', () => {
+                    linkedBtnContainer.classList.toggle("categories-btn--liked");
+        
+                    //agregar movie a local storage
+                });
         
                 const movieImg = document.createElement("img");
                 movieImg.setAttribute("alt", movie.title);
@@ -305,8 +361,9 @@ function getPaginatedMoviesBySearch(query) {
                     );
                 });
         
-                movieImg.appendChild(category);
-                filterMoviesContainer.appendChild(movieImg);
+                filterMoviesContainer.appendChild(cardContainer);
+                cardContainer.appendChild(movieImg);
+                cardContainer.appendChild(linkedBtnContainer);
             });
         }
     }
@@ -325,8 +382,16 @@ async function getMoviesBySearch(query) {
     filterMoviesContainer.innerHTML = "";
 
     movies.forEach((movie) => {
-        const category = document.createElement("div");
-        category.classList.add("movies-category");
+        const cardContainer = document.createElement("article");
+        cardContainer.classList.add("categories-card-container");
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn-categories");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("categories-btn--liked");
+
+            //agregar movie a local storage
+        });
 
         const movieImg = document.createElement("img");
         movieImg.setAttribute("alt", movie.title);
@@ -345,8 +410,9 @@ async function getMoviesBySearch(query) {
             );
         });
 
-        movieImg.appendChild(category);
-        filterMoviesContainer.appendChild(movieImg);
+        filterMoviesContainer.appendChild(cardContainer);
+        cardContainer.appendChild(movieImg);
+        cardContainer.appendChild(linkedBtnContainer);
     });
 }
 
@@ -375,6 +441,17 @@ async function getRelatedMoviesId(id) {
     similarMoviesContainer.innerHTML = "";
 
     movies.forEach((movie) => {
+        const cardContainer = document.createElement("article");
+        cardContainer.classList.add("categories-card-container");
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn-categories");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("categories-btn--liked");
+
+            //agregar movie a local storage
+        });
+
         const movieImg = document.createElement("img");
         movieImg.classList.add("similar-movie-image");
         movieImg.setAttribute("alt", movie.title);
@@ -386,7 +463,9 @@ async function getRelatedMoviesId(id) {
             location.hash = "#movie=" + movie.id;
         });
 
-        similarMoviesContainer.appendChild(movieImg);
+        similarMoviesContainer.appendChild(cardContainer);
+        cardContainer.appendChild(movieImg);
+        cardContainer.appendChild(linkedBtnContainer);
     });
 }
 
