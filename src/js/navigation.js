@@ -68,7 +68,7 @@ function categoriesPage() {
     categoriesNames.innerHTML = categoryName;
     getMoviesByCategory(categoryId);
 
-    infiniteScroll = getPaginatedCategoryMovies;
+    infiniteScroll = getPaginatedCategoryMovies(categoryId);
 }
 
 function homePage() {
@@ -103,6 +103,8 @@ function searchPage() {
     // ['search' 'platzi']
     const [_, query] = location.hash.split('='); 
     getMoviesBySearch(query);
+
+    infiniteScroll = getPaginatedMoviesBySearch(query);
 }
 
 function movieDetailsPage() {

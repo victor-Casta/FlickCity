@@ -218,54 +218,98 @@ async function getMoviesByCategory(id) {
     console.log(movies);
 }
 
-async function getPaginatedCategoryMovies() {
-    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+function getPaginatedCategoryMovies(id) {
+    return async function () {
+        const { 
+            scrollTop, 
+            clientHeight, 
+            scrollHeight 
+        } = document.documentElement;
 
-    const scrollIsBottom = scrollTop + clientHeight >= scrollHeight - 15;
-
-    const pageIsNotMax = page < maxPage;
-
-    if (scrollIsBottom && pageIsNotMax) {
-        page++;
-        const response = await api.get("discover/movie", {
-            params: {
-                page,
-            },
-        });
-        console.log(response.data);
-        const movies = response.data.results;
-        
-
-
-        movies.forEach((movie) => {
-            const category = document.createElement("div");
-            category.classList.add("movies-category");
-
-            const movieImg = document.createElement("img");
-            movieImg.setAttribute("alt", movie.title);
-            movieImg.setAttribute(
-                "src",
-                "https://image.tmdb.org/t/p/w500" + movie.poster_path
-            );
-            movieImg.addEventListener("click", () => {
-                location.hash = "#movie=" + movie.id;
+        const scrollIsBottom = scrollTop + clientHeight >= scrollHeight - 15;
+    
+        const pageIsNotMax = page < maxPage;
+    
+        if (scrollIsBottom && pageIsNotMax) {
+            page++;
+            const response = await api.get("discover/movie", {
+                params: {
+                    with_genres: id,
+                    page,
+                },
             });
-
-            movieImg.appendChild(category);
-            moviesCategoryImages.appendChild(movieImg);
-        });
+            maxPage = response.data.total_pages;
+            const movies = response.data.results;
+        
+            movies.forEach((movie) => {
+                const category = document.createElement("div");
+                category.classList.add("movies-category");
+        
+                const movieImg = document.createElement("img");
+                movieImg.setAttribute("alt", movie.title);
+                movieImg.setAttribute(
+                    "src",
+                    "https://image.tmdb.org/t/p/w500" + movie.poster_path
+                );
+                movieImg.addEventListener("click", () => {
+                    location.hash = "#movie=" + movie.id;
+                });
+        
+                movieImg.appendChild(category);
+                moviesCategoryImages.appendChild(movieImg);
+            });
+        }
     }
+}
 
-    // const btnContainer = document.createElement("div");
-    // btnContainer.classList.add("btn-container");
-    // moviesCategoryImages.appendChild(btnContainer);
+function getPaginatedMoviesBySearch(query) {
+    return async function () {
+        const { 
+            scrollTop, 
+            clientHeight, 
+            scrollHeight 
+        } = document.documentElement;
 
-    // btnContainer.innerHTML = "";
-
-    // const btnLoadMore = document.createElement("button");
-    // btnLoadMore.innerText = "Cargar mas";
-    // btnLoadMore.addEventListener("click", getPaginatedCategoryMovies);
-    // btnContainer.appendChild(btnLoadMore);
+        const scrollIsBottom = scrollTop + clientHeight >= scrollHeight - 15;
+    
+        const pageIsNotMax = page < maxPage;
+    
+        if (scrollIsBottom && pageIsNotMax) {
+            page++;
+            const response = await api.get("search/movie", {
+                params: {
+                    query,
+                    page,
+                },
+            });
+            const movies = response.data.results;
+        
+            movies.forEach((movie) => {
+                const category = document.createElement("div");
+                category.classList.add("movies-category");
+        
+                const movieImg = document.createElement("img");
+                movieImg.setAttribute("alt", movie.title);
+                movieImg.setAttribute(
+                    "src",
+                    "https://image.tmdb.org/t/p/w300" + movie.poster_path
+                );
+                movieImg.addEventListener("click", () => {
+                    location.hash = "#movie=" + movie.id;
+                });
+        
+                movieImg.addEventListener("error", () => {
+                    movieImg.setAttribute(
+                        "src",
+                        "https://i.pinimg.com/564x/d3/d1/8a/d3d18af46e0eb08049ecdbfebb7dc263.jpg"
+                    );
+                });
+        
+                movieImg.appendChild(category);
+                filterMoviesContainer.appendChild(movieImg);
+            });
+        }
+    }
 }
 
 async function getMoviesBySearch(query) {
@@ -275,6 +319,8 @@ async function getMoviesBySearch(query) {
         },
     });
     const movies = response.data.results;
+    maxPage = response.data.total_pages;
+    console.log(maxPage);
 
     filterMoviesContainer.innerHTML = "";
 
