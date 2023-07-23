@@ -246,7 +246,8 @@ main .animated-movie-container .animated-movie-cards-container {
     align-items: center;
     flex: 0 0 auto;
     width: 300px;
-    padding: 29px 10px;
+    padding: 11px 10px;
+    margin-top: 20px;
 }
 
 main .movie-container .cards-container h3,
@@ -494,6 +495,7 @@ footer section {
 }
 
 .categories-card-container {
+    max-width: 140px;
     position: relative;
 }
 
@@ -525,19 +527,28 @@ footer section {
     left: 6px;
 }
 
-
 .linked-btn {
     width: 40px;
     height: 40px;
     background-color: var(--black-color);
     position: absolute;
-    bottom: 130px;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-60%);
     border-radius: 50%;
     box-shadow: 0px 3px 3px 1px #f48301;
 }
 
 .movie-btn--liked {
     background-color: var(--primary-color);
+}
+
+.favorites-btn {
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: -13px;
+    left: 50%;
+    transform: translateX(-60%);
 }
 
 .movie-btn--liked::before {

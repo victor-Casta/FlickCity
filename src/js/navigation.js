@@ -14,6 +14,12 @@ homeFooterBtn.addEventListener('click', () => {
     location.hash = '#home';
 });
 
+favoritesButton.addEventListener('click', () => {
+    location.hash = '#liked=';
+})
+
+
+
 
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
@@ -36,7 +42,9 @@ function navigator() {
         movieDetailsPage();
     } else if (location.hash.startsWith('#category=')) {
         categoriesPage();
-    } else {
+    } else if (location.hash.startsWith('#liked=')) {
+        likedPage();
+    }else {
         homePage();
     }
     
@@ -61,6 +69,7 @@ function categoriesPage() {
     trendingMovies.classList.add('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.add('inactive');
+    linkedMoviesSection.classList.add('inactive');
 
     const [_, categoryData] = location.hash.split('='); //['#category', '#id-name']
     const [categoryId, categoryName] = categoryData.split('-');
@@ -81,12 +90,28 @@ function homePage() {
     trendingMovies.classList.remove('inactive');
     newMovies.classList.remove('inactive');
     animatedMovies.classList.remove('inactive');
+    linkedMoviesSection.classList.add('inactive');
 
 
     getCategoryMovies();
     getTrendingMoviesPreview();  
     getTvSeriesPreview();
     getAnimatedMoviesPreview()
+}
+
+function likedPage() {
+    console.log('liked!!');
+
+    headerContain.classList.add('inactive');
+    popularSearchMovies.classList.add('inactive');
+    moviesDestails.classList.add('inactive');
+    categoriesMovies.classList.add('inactive');
+    trendingMovies.classList.add('inactive');
+    newMovies.classList.add('inactive');
+    animatedMovies.classList.add('inactive');
+    linkedMoviesSection.classList.remove('inactive');
+
+    getLikedMovies();
 }
 
 function searchPage() {
@@ -99,6 +124,7 @@ function searchPage() {
     trendingMovies.classList.add('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.add('inactive');
+    linkedMoviesSection.classList.add('inactive');
 
     // ['search' 'platzi']
     const [_, query] = location.hash.split('='); 
@@ -117,6 +143,7 @@ function movieDetailsPage() {
     trendingMovies.classList.add('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.add('inactive');
+    linkedMoviesSection.classList.add('inactive');
 
     // ['movie' '5457452']
     const [_, movieId] = location.hash.split('='); 
@@ -133,4 +160,5 @@ function trendsPage() {
     trendingMovies.classList.remove('inactive');
     newMovies.classList.add('inactive');
     animatedMovies.classList.remove('inactive');
+    linkedMoviesSection.classList.add('inactive');
 }

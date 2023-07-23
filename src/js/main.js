@@ -24,6 +24,8 @@ function likedMoviesList() {
 function likeMovie(movie) {
     const likedMovies = likedMoviesList();
 
+    console.log(likedMovies);
+
     if (likedMovies[movie.id]) {
         console.log('la pelicula ya estaba en local storage');
         likedMovies[movie.id] = undefined;
@@ -58,6 +60,7 @@ async function getTrendingMoviesPreview() {
 
         const linkedBtnContainer = document.createElement('div');
         linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("movie-btn--liked");
         linkedBtnContainer.addEventListener('click', () => {
             linkedBtnContainer.classList.toggle("movie-btn--liked");
             likeMovie(movie);
@@ -115,10 +118,10 @@ async function getTvSeriesPreview() {
 
         const linkedBtnContainer = document.createElement('div');
         linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("movie-btn--liked");
         linkedBtnContainer.addEventListener('click', () => {
             linkedBtnContainer.classList.toggle("movie-btn--liked");
-
-            //agregar movie a local storage
+            likeMovie(movie);
         });
 
 
@@ -174,12 +177,11 @@ async function getAnimatedMoviesPreview() {
 
         const linkedBtnContainer = document.createElement('div');
         linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
         linkedBtnContainer.addEventListener('click', () => {
-            linkedBtnContainer.classList.toggle("movie-btn--liked");
-
-            //agregar movie a local storage
+            linkedBtnContainer.classList.toggle("favorites-btn");
+            likeMovie(movie);
         });
-
 
         const movieImg = document.createElement("img");
         movieImg.classList.add("animated-movie-image", "blur-in-expand");
@@ -258,11 +260,11 @@ async function getMoviesByCategory(id) {
         cardContainer.classList.add("categories-card-container");
 
         const linkedBtnContainer = document.createElement('div');
-        linkedBtnContainer.classList.add("linked-btn-categories");
+        linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
         linkedBtnContainer.addEventListener('click', () => {
-            linkedBtnContainer.classList.toggle("categories-btn--liked");
-
-            //agregar movie a local storage
+            linkedBtnContainer.classList.toggle("favorites-btn");
+            likeMovie(movie);
         });
 
         const movieImg = document.createElement("img");
@@ -311,11 +313,11 @@ function getPaginatedCategoryMovies(id) {
                 cardContainer.classList.add("categories-card-container");
         
                 const linkedBtnContainer = document.createElement('div');
-                linkedBtnContainer.classList.add("linked-btn-categories");
+                linkedBtnContainer.classList.add("linked-btn");
+                likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
                 linkedBtnContainer.addEventListener('click', () => {
-                    linkedBtnContainer.classList.toggle("categories-btn--liked");
-        
-                    //agregar movie a local storage
+                    linkedBtnContainer.classList.toggle("favorites-btn");
+                    likeMovie(movie);
                 });
         
                 const movieImg = document.createElement("img");
@@ -363,11 +365,11 @@ function getPaginatedMoviesBySearch(query) {
                 cardContainer.classList.add("categories-card-container");
         
                 const linkedBtnContainer = document.createElement('div');
-                linkedBtnContainer.classList.add("linked-btn-categories");
+                linkedBtnContainer.classList.add("linked-btn");
+                likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
                 linkedBtnContainer.addEventListener('click', () => {
-                    linkedBtnContainer.classList.toggle("categories-btn--liked");
-        
-                    //agregar movie a local storage
+                    linkedBtnContainer.classList.toggle("favorites-btn");
+                    likeMovie(movie);
                 });
         
                 const movieImg = document.createElement("img");
@@ -412,11 +414,11 @@ async function getMoviesBySearch(query) {
         cardContainer.classList.add("categories-card-container");
 
         const linkedBtnContainer = document.createElement('div');
-        linkedBtnContainer.classList.add("linked-btn-categories");
+        linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
         linkedBtnContainer.addEventListener('click', () => {
-            linkedBtnContainer.classList.toggle("categories-btn--liked");
-
-            //agregar movie a local storage
+            linkedBtnContainer.classList.toggle("favorites-btn");
+            likeMovie(movie);
         });
 
         const movieImg = document.createElement("img");
@@ -471,11 +473,11 @@ async function getRelatedMoviesId(id) {
         cardContainer.classList.add("categories-card-container");
 
         const linkedBtnContainer = document.createElement('div');
-        linkedBtnContainer.classList.add("linked-btn-categories");
+        linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
         linkedBtnContainer.addEventListener('click', () => {
-            linkedBtnContainer.classList.toggle("categories-btn--liked");
-
-            //agregar movie a local storage
+            linkedBtnContainer.classList.toggle("favorites-btn");
+            likeMovie(movie);
         });
 
         const movieImg = document.createElement("img");
@@ -483,7 +485,7 @@ async function getRelatedMoviesId(id) {
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute(
             "src",
-            "https://image.tmdb.org/t/p/w300" + movie.poster_path
+            "https://image.tmdb.org/t/p/w500" + movie.poster_path
         );
         movieImg.addEventListener("click", () => {
             location.hash = "#movie=" + movie.id;
@@ -493,6 +495,39 @@ async function getRelatedMoviesId(id) {
         cardContainer.appendChild(movieImg);
         cardContainer.appendChild(linkedBtnContainer);
     });
+}
+
+function getLikedMovies() {
+    const likedMovies = likedMoviesList();
+
+    const moviesArray = Object.values(likedMovies);
+
+    linkedPreviewContainer.innerHTML = '';
+
+    moviesArray.forEach((movie) => {
+        const cardContainer = document.createElement("article");
+        cardContainer.classList.add("categories-card-container");
+
+        const linkedBtnContainer = document.createElement('div');
+        linkedBtnContainer.classList.add("linked-btn");
+        likedMoviesList()[movie.id] && linkedBtnContainer.classList.add("favorites-btn");
+        linkedBtnContainer.addEventListener('click', () => {
+            linkedBtnContainer.classList.toggle("favorites-btn");
+            likeMovie(movie);
+        });
+
+        const movieImg = document.createElement('img');
+        movieImg.setAttribute(
+            "src",
+            "https://image.tmdb.org/t/p/w500" + movie.poster_path
+        )
+
+        linkedPreviewContainer.appendChild(cardContainer);
+        cardContainer.appendChild(linkedBtnContainer);
+        cardContainer.appendChild(movieImg);
+    })
+
+    console.log(moviesArray);
 }
 
 botonBurger.addEventListener("click", function () {
